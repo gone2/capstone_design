@@ -14,6 +14,8 @@ from __future__ import division
 
 import re
 import sys
+import static
+import makeTextFile
 
 from google.cloud import speech
 from google.cloud.speech import enums
@@ -132,14 +134,21 @@ def listen_print_loop(responses):
             num_chars_printed = len(transcript)
 
         else:
-
+            ##########리스트에 넣기##################################
+            static.RECORDED_STRING.append(transcript + overwrite_chars)
+            ###############################################################
             print(transcript + overwrite_chars)
 
             # Exit recognition if any of the transcribed phrases could be
             # one of our keywords.
             if re.search(r'\b(종료)\b', transcript, re.I):
                 print('Exiting..')
+                #######파일 만들기#################
+                makeTextFile.makeFile()
+                ##################################
                 break
+
+
 
             num_chars_printed = 0
 
