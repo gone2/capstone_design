@@ -1,4 +1,4 @@
-#set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\jeonjiwon\Desktop\capston\speechtotext-273207-325c4812f247.json
+#set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\jeonjiwon\Desktop\capstone_jiwon\speechtotext-273207-325c4812f247.json
 
 
 """Google Cloud Speech API sample application using the streaming API.
