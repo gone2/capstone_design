@@ -14,8 +14,8 @@
       </div>
 
     <div class="above_link">
-        <router-link to="/mypage" class="above_first">마이페이지</router-link>
         <a href="#" class="above_second" v-on:click="test()">로그아웃</a>
+        <router-link to="mypage" class="above_first">마이페이지</router-link>
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   name: 'headercom',
   methods: {
       test() {
-          alert("김성민 똥꾸멍자식")
+          alert("test alert")
           
       }
   }

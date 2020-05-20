@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import login from '../vuePage/login'
 import myclass from '../vuePage/myclass'
 import myrecord from '../vuePage/myrecord'
+import mypage from '../vuePage/mypage'
 
 import capstoneClass from '../vueClass/capstone'
 import bigdataClass from '../vueClass/bigdata'
@@ -41,6 +42,12 @@ export default new VueRouter({
         path: '/myrecord',
         name: 'myrecord',
         component: myrecord
+      },
+
+      {
+        path: '/mypage',
+        name: 'mypage',
+        component: mypage
       },
 
       {

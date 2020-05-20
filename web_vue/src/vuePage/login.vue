@@ -14,12 +14,12 @@
 
             <form class="signup">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="ID">
+                <input type="text" class="inputForm-control" placeholder="ID">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="PASSWORD">
+                <input type="password" class="inputForm-control" placeholder="PASSWORD">
               </div>
-              <button type="button" class="btn btn-primary" v-on:click="loginCheck()">Login</button>
+              <button type="button" class="loginBtn btn btn-primary" v-on:click="loginCheck()">Login</button>
               
               <div class="row">
                 <div class="col-6 col-sm-6">
@@ -138,14 +138,14 @@ input {
   margin-bottom: 7px
 }
 
-.form-control {
+.inputForm-control {
   border: 1px solid #358bdc75;
   border-radius: 30px;
   background-color: rgba(0, 0, 0, .075);
   letter-spacing: 1px
 }
 
-.form-control:focus {
+.inputForm-controll:focus {
   border: 0.5px solid #358bdc75;
   border-radius: 30px;
   box-shadow: none;
@@ -154,7 +154,7 @@ input {
   letter-spacing: 1px
 }
 
-.btn {
+.loginBtn {
   display: block;
   width: 100%;
   border-radius: 30px;
