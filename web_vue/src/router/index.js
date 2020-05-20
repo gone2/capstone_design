@@ -4,10 +4,16 @@ import VueRouter from 'vue-router'
 import login from '../vuePage/login'
 import myclass from '../vuePage/myclass'
 import myrecord from '../vuePage/myrecord'
+
 import capstoneClass from '../vueClass/capstone'
 import bigdataClass from '../vueClass/bigdata'
 import machineClass from '../vueClass/machine'
 import programingClass from '../vueClass/programing'
+
+import capstoneRecord from '../vueRecord/recordCapstone'
+import bigdataRecord from '../vueRecord/recordBigdata'
+import machineRecord from '../vueRecord/recordMachine'
+import programingRecord from '../vueRecord/recordProgram'
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -59,6 +65,30 @@ export default new VueRouter({
         path:'/programingClass',
         name:'programingClass',
         component: programingClass
+      },
+
+      {
+        path: '/capstoneRecord',
+        name: 'capstoneRecord',
+        component: capstoneRecord
+      },
+
+      {
+        path: '/bigdataRecord',
+        name: 'bigdataRecord',
+        component: bigdataRecord
+      },
+
+      {
+        path:'/machineRecord',
+        name:'machineRecord',
+        component: machineRecord
+      },
+
+      {
+        path:'/programingRecord',
+        name:'programingRecord',
+        component: programingRecord
       }
     ]
   })
