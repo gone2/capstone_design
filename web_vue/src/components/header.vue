@@ -14,22 +14,28 @@
       </div>
 
     <div class="above_link">
-        <a href="#" class="above_second" v-on:click="test()">로그아웃</a>
+        <a href="#" id="logoutMt" class="above_second" v-on:click="logout">로그아웃</a>
         <router-link to="mypage" class="above_first">마이페이지</router-link>
     </div>
   </div>
 </template>
 
 <script>
+
+import login from '../vuePage/login'
+
 export default {
-  name: 'headercom',
-  methods: {
-      test() {
-          alert("test alert")
-          
-      }
+  name: 'headercom'
+
+,methods: {
+    logout: function(evnet) {
+      alert("test alert")
+      // this.name
+    }
   }
 }
+
+
 
 </script>
 
@@ -40,7 +46,7 @@ body {
 }
 
 #logo {
-    width: 220px;
+    width: 110%;
 }
 
 #header {
@@ -67,14 +73,23 @@ body {
 .menubar {
     float: left;
     margin-left: 5%;
-    width: 40%;
+    width: 45%;
     box-sizing: border-box;
 }
 
 ul {
-  list-style:none;
+  list-style: none;
   margin:0;
   padding:0;
+}
+
+li {
+  list-style-type: none;
+  float: left;
+}
+
+a {
+  color: #0199ff;
 }
 
 #title {
@@ -91,22 +106,19 @@ ul {
   width: 23%;
 }
 
-a {
-  color: #0199ff;
-}
-
 .above_first {
+  width: 45%;
   font-weight: bold;
   float: right;
-  margin: 2% 2% 0 8%;
+  margin: 2% 0 0 0;
   color: rgba(0, 0, 0, 0.3);
 }
 
 .above_second {
-  width: 80px;
+  width: 35%;
   font-weight: bold;
   float: right;
-  margin: 2% 2% 0 8%;
+  margin: 2% 0 0 0;
   color: rgba(0, 0, 0, 0.3);
 }
 </style>

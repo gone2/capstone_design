@@ -14,10 +14,10 @@
 
             <form class="signup">
               <div class="form-group">
-                <input type="text" class="inputForm-control" placeholder="ID">
+                <input type="text" class="inputForm-control" placeholder="   ID">
               </div>
               <div class="form-group">
-                <input type="password" class="inputForm-control" placeholder="PASSWORD">
+                <input type="password" class="inputForm-control" placeholder="   PASSWORD">
               </div>
               <button type="button" class="loginBtn btn btn-primary" v-on:click="loginCheck()">Login</button>
               
