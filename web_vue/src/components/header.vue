@@ -102,7 +102,7 @@ a {
 
 .above_link {
   float: right;
-  margin: 2% 2% 0 0;
+  margin: 2% 0 0 0;
   width: 23%;
 }
 
