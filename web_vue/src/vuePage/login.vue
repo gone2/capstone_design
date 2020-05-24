@@ -84,7 +84,7 @@ export default {
             userPw: 'rlatjdalsajdcjddl'
         }
       }).then((result) => {
-        var data = result.data.data;
+        var data = result.data.userId;
         if (result.data.result == 200) {
             self.$router.push({
               name: "myclass"
