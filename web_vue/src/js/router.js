@@ -1,3 +1,5 @@
+// vue router 설정
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -15,6 +17,7 @@ import capstoneRecord from '../vueRecord/recordCapstone'
 import bigdataRecord from '../vueRecord/recordBigdata'
 import machineRecord from '../vueRecord/recordMachine'
 import programingRecord from '../vueRecord/recordProgram'
+
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -26,7 +29,7 @@ export default new VueRouter({
     }),
   
     routes: [
-      {
+    {
         path: '/',
         name: 'login',
         component: login
