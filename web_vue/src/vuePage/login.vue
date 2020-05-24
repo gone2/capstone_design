@@ -4,7 +4,7 @@
       <div class="col-md-6 mx-auto py-4 px-0">
         <div class="card p-0">
           <div class="child">
-            <img src="../assets/inhatc_logo.jpg">
+            <img src="@/assets/inhatc_logo.jpg">
           </div>
 
           <div class="child">

@@ -2,7 +2,7 @@
   <div id="header">
       <div class="below_link">
         <div class="home_logo">
-          <img id="logo" src="../assets/inhatc_logo2.jpg">
+          <img id="logo" src="@/assets/inhatc_logo2.jpg">
         </div>
 
         <div class="menubar">
@@ -22,7 +22,7 @@
 
 <script>
 
-import login from '../vuePage/login'
+import login from '@/vuePage/login'
 
 export default {
   name: 'headercom'

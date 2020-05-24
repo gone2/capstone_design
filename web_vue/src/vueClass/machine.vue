@@ -34,7 +34,7 @@
 
 <script>
 
-import headercom from '../components/header'
+import headercom from '@/components/header'
 
 export default {
     name: 'myclass',

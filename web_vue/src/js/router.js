@@ -3,20 +3,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import login from '../vuePage/login'
-import myclass from '../vuePage/myclass'
-import myrecord from '../vuePage/myrecord'
-import mypage from '../vuePage/mypage'
+import login from '@/vuePage/login'
+import myclass from '@/vuePage/myclass'
+import myrecord from '@/vuePage/myrecord'
+import mypage from '@/vuePage/mypage'
 
-import capstoneClass from '../vueClass/capstone'
-import bigdataClass from '../vueClass/bigdata'
-import machineClass from '../vueClass/machine'
-import programingClass from '../vueClass/programing'
+import capstoneClass from '@/vueClass/capstone'
+import bigdataClass from '@/vueClass/bigdata'
+import machineClass from '@/vueClass/machine'
+import programingClass from '@/vueClass/programing'
 
-import capstoneRecord from '../vueRecord/recordCapstone'
-import bigdataRecord from '../vueRecord/recordBigdata'
-import machineRecord from '../vueRecord/recordMachine'
-import programingRecord from '../vueRecord/recordProgram'
+import capstoneRecord from '@/vueRecord/recordCapstone'
+import bigdataRecord from '@/vueRecord/recordBigdata'
+import machineRecord from '@/vueRecord/recordMachine'
+import programingRecord from '@/vueRecord/recordProgram'
 
 Vue.use(VueRouter)
 
