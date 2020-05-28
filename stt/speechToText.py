@@ -1,14 +1,5 @@
 #set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\jeonjiwon\Desktop\capstone_jiwon\speechtotext-273207-325c4812f247.json
 
-
-"""Google Cloud Speech API sample application using the streaming API.
-NOTE: This module requires the additional dependency `pyaudio`. To install
-using pip:
-    pip install pyaudio
-Example usage:
-    python transcribe_streaming_mic.py
-"""
-
 # [START speech_transcribe_streaming_mic]
 from __future__ import division
 
@@ -23,11 +14,12 @@ from google.cloud.speech import types
 import pyaudio
 from six.moves import queue
 
-# Audio recording parameters
+# Audio recording parameter
 RATE = 16000
 CHUNK = int(RATE / 10)  # 100ms
 
-
+###########################################################
+# 마이크 스트리밍 코드 -> 녹음된 파일 활용하는 것으로 변경 예정
 class MicrophoneStream(object):
     """Opens a recording stream as a generator yielding the audio chunks."""
     def __init__(self, rate, chunk):
@@ -72,15 +64,11 @@ class MicrophoneStream(object):
 
     def generator(self):
         while not self.closed:
-            # Use a blocking get() to ensure there's at least one chunk of
-            # data, and stop iteration if the chunk is None, indicating the
-            # end of the audio stream.
             chunk = self._buff.get()
             if chunk is None:
                 return
             data = [chunk]
 
-            # Now consume whatever other data's still buffered.
             while True:
                 try:
                     chunk = self._buff.get(block=False)
@@ -91,20 +79,11 @@ class MicrophoneStream(object):
                     break
 
             yield b''.join(data)
+###########################################################
+# 여기까지 마이크 스트리밍
 
 
 def listen_print_loop(responses):
-    """Iterates through server responses and prints them.
-    The responses passed is a generator that will block until a response
-    is provided by the server.
-    Each response may contain multiple results, and each result may contain
-    multiple alternatives; for details, see https://goo.gl/tjCPAU.  Here we
-    print only the transcription for the top alternative of the top result.
-    In this case, responses are provided for interim results as well. If the
-    response is an interim one, print a line feed at the end of it, to allow
-    the next result to overwrite it, until the response is a final one. For the
-    final one, print a newline to preserve the finalized transcription.
-    """
     num_chars_printed = 0
     for response in responses:
         if not response.results:
@@ -167,6 +146,7 @@ def main():
         config=config,
         interim_results=True)
 
+    # 수정할 필요있음
     with MicrophoneStream(RATE, CHUNK) as stream:
         audio_generator = stream.generator()
         requests = (types.StreamingRecognizeRequest(audio_content=content)
