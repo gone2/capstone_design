@@ -74,30 +74,33 @@ export default {
   methods: {
     loginCheck() {
       var self = this
+      self.$router.push({
+        name: "myclass"
+      })
 
-      axios({
-        url: config.url + '/api/company',
-        crossDomain: true,
-        method: 'POST',
-        params: {
-            userId: '202046010',
-            userPw: 'rlatjdalsajdcjddl'
-        }
-      }).then((result) => {
-        var data = result.data.userId;
-        if (result.data.result == 200) {
-            self.$router.push({
-              name: "myclass"
-            })
-        }
-        else {
-            self.snackbarMessage = '업체 목록을 가져오지 못했습니다.';
-            self.snackbarRed = true;
-        }
-      }).catch((ex) => {
-        console.log("ERROR! : ", ex);
-        self.snackbarMessage = '업체 목록을 가져오지 못했습니다.';
-      });
+      // axios({
+      //   url: config.url + '/api/company',
+      //   crossDomain: true,
+      //   method: 'POST',
+      //   params: {
+      //       userId: '202046010',
+      //       userPw: 'rlatjdalsajdcjddl'
+      //   }
+      // }).then((result) => {
+      //   var data = result.data.userId;
+      //   if (result.data.result == 200) {
+      //       self.$router.push({
+      //         name: "myclass"
+      //       })
+      //   }
+      //   else {
+      //       self.snackbarMessage = '업체 목록을 가져오지 못했습니다.';
+      //       self.snackbarRed = true;
+      //   }
+      // }).catch((ex) => {
+      //   console.log("ERROR! : ", ex);
+      //   self.snackbarMessage = '업체 목록을 가져오지 못했습니다.';
+      // });
 
     }
   }

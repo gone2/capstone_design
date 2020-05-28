@@ -8,6 +8,7 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js'
   },
+  outputDir: path.resolve(__dirname, "../src/main/resources/static"),
   module: {
     rules: [
       {
