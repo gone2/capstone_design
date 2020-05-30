@@ -1,6 +1,7 @@
 #set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\jeonjiwon\Desktop\capstone_jiwon\speechtotext-273207-bb7ae3de971d.json
-def transcribe_gcs(gcs_uri):
     """Asynchronously transcribes the audio file specified by the gcs_uri."""
+
+def transcribe_gcs(gcs_uri):
 
     from google.cloud import speech
     from google.cloud.speech import enums
@@ -20,6 +21,7 @@ encoding=enums.RecognitionConfig.AudioEncoding.FLAC,
     response = operation.result()
 
     return response
+    
 
 response = transcribe_gcs("gs://speech-bucket-jiwon/Audio.flac")
 
