@@ -1,20 +1,22 @@
 package com.jiwon.project.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+import com.jiwon.project.service.UserService;
 
-@Controller
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
 public class UserController {
+	
+    @Autowired
+    private UserService userService;
     
-	@RequestMapping(value="/")
-    @ResponseBody
-    public ModelAndView login() {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("message", "Home...");
-		mav.setViewName("login");
-		return mav;
-    }
+	@GetMapping(value="/jiwon/login")
+    public String login() {
+		System.out.println("login method!!!!!!!!!!!!@@@@@@@@@@@@!!!!!!!!!!!");
+		return "index.html";
+	}
 }
+
 
