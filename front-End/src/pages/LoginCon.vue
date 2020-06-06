@@ -53,8 +53,16 @@ export default {
             userPw: self.tem_pw
         }
       }).then((result) => {
+        var self = this
         var data = result.data
-        self.db_test = data
+        if(data == "success"){
+          self.$router.push({
+          name: "myclass"
+          })
+        }
+        else{
+          self.db_test = data
+        }
         // if (result.data.result == 200) {
         //     self.companyList = data.res;
         //     self.companyTotal = data.totalRecordSize;

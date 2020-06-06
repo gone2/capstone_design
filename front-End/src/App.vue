@@ -18,7 +18,7 @@ export default {
     login
   },
   // mounted() {
-  //   request('http://localhost:9000/jiwon/login', function (error, response, body) {
+  //   request('http://localhost:8080/', function (error, response, body) {
   //     window.console.log('error: ', error);
   //     window.console.log('statusCode: ', response && response.statusCode);
   //     window.console.log('body: ', body);

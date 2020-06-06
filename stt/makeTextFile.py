@@ -9,7 +9,7 @@ import time
 def makeFile():
 
     now = time.localtime()
-    nowDate = time.strftime("%Y-%m-%d %H.%M.%S", time.localtime(time.time()))
+    nowDate = time.strftime("%Y-%m-%d %H;%M;%S", time.localtime(time.time()))
     # hh = time.strftime("%H", time.localtime(time.time()))
     # mm = time.strftime("%M", time.localtime(time.time()))
     # ss = time.strftime("%S", time.localtime(time.time()))

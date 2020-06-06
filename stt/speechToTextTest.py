@@ -1,5 +1,6 @@
 #set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\jeonjiwon\Desktop\capstone_jiwon\speechtotext-273207-bb7ae3de971d.json
-    """Asynchronously transcribes the audio file specified by the gcs_uri."""
+
+import time
 
 def transcribe_gcs(gcs_uri):
 
@@ -10,8 +11,7 @@ def transcribe_gcs(gcs_uri):
     client = speech.SpeechClient()
     audio = types.RecognitionAudio(uri=gcs_uri)
     config = types.RecognitionConfig(
-
-encoding=enums.RecognitionConfig.AudioEncoding.FLAC,
+        encoding=enums.RecognitionConfig.AudioEncoding.FLAC,
         sample_rate_hertz=48000,
         language_code='ko-KR',
         audio_channel_count= 2)
@@ -22,12 +22,13 @@ encoding=enums.RecognitionConfig.AudioEncoding.FLAC,
 
     return response
     
+now = time.localtime()
+nowDate = time.strftime("%Y-%m-%d %H;%M;%S", time.localtime(time.time()))
 
-response = transcribe_gcs("gs://speech-bucket-jiwon/Audio.flac")
+response = transcribe_gcs("gs://speech-bucket-jiwon/test_speech.flac")
 
-with open("C:/Users/jeonjiwon/Desktop/capstone_jiwon/speech_file/test.txt", "w") as script:
+with open("C:/Users/jeonjiwon/Desktop/capstone_jiwon/speech_file/" + str(nowDate) + ".txt", "w") as script:
     for result in response.results:
-        print(0)
         script.write(u'{}'.format(result.alternatives[0].transcript)+"\n")
 
 print("completed")

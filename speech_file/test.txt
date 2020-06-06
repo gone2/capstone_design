@@ -1,10 +1,1 @@
-# 3주차
-  - ## Android 에서 알아두어야 할 아주아주 기본적인 JAVA
-  
-```
-      1. public, private, final, static
-      2. Override, Overload
-      3. 상속, 인터페이스
-```
-[참고] <https://github.com/pinokio531/AndroidStudy/blob/master/app/src/main/java/com/sungminapplication/sungminapp/AndroidBase/>
- 
+안녕 내 이름은 김성민이라고 해 지원이 남자 친구지 앞으로도 잘 부탁한다
