@@ -9,6 +9,7 @@ import MainNavbar from '@/layout/MainNavbar.vue'; //네비바
 import MainFooter from '@/layout/MainFooter.vue'; //푸터
 
 import LoginCon from '@/pages/LoginCon.vue';
+import Recorder from '@/pages/Recorder';
 Vue.use(Router);
 
 export default new Router({
@@ -43,6 +44,14 @@ export default new Router({
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: 'black' }
+      }
+    },
+    {
+      path: '/recording',
+      name: 'recording',
+      components: { default: Recorder, header: MainNavbar, footer: MainFooter},
+      props: {
+        header: { colorOnScroll: 400 }
       }
     },
     {

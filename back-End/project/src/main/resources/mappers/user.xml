@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.9//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiwon.project.dao.UserDao">
+    <select id="selectUserCheck" parameterType="String" resultType="String">
+        SELECT
+            USER_ID
+          , USER_PW
+        FROM
+            USERS
+        <where>
+            USER_ID = #{userId}
+        AND USER_PW = #{userPw}
+        </where>
+    </select>
+
+    <select id="selectLoginCheck" parameterType="UserDto" resultType="UserDto">
+        SELECT
+            USER_ID
+          , USER_PW
+        FROM
+            USERS
+        <where>
+            USER_ID = #{userId}
+        AND USER_PW = #{userPw}
+        </where>
+    </select>
+</mapper>

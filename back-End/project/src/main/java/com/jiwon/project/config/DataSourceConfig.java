@@ -22,12 +22,14 @@ public class DataSourceConfig {
     //<bean>태그에 대응되는 코드 설정
     //스프링 레거시프로젝트에서는 xml에 작성했던 코드를 스프링부트에서는 이쪽에 코드로 작성한 것이다.
     //sqlSessionFactory가 sqlsessionTemplate를 만들고, sqlsessionTemplate가 sqlsession을 만든다.
+    
+    
     @Bean //자바코드로 bean을 등록
     public SqlSessionFactory sqlSessionFactory( DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 
         bean.setDataSource(dataSource); //데이터소스 설정
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:static/mappers/*.xml"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mappers/*.xml"));
         
         return bean.getObject();
     }
