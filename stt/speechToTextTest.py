@@ -2,8 +2,8 @@
 
 import time
 
+# 음성 -> 텍스트 변환
 def transcribe_gcs(gcs_uri):
-
     from google.cloud import speech
     from google.cloud.speech import enums
     from google.cloud.speech import types
@@ -12,7 +12,6 @@ def transcribe_gcs(gcs_uri):
     audio = types.RecognitionAudio(uri=gcs_uri)
     config = types.RecognitionConfig(
         #인코딩 형식
-        #encoding=enums.RecognitionConfig.AudioEncoding.FLAC,
         encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
         #주파수 설정
         sample_rate_hertz=44100,
@@ -25,22 +24,34 @@ def transcribe_gcs(gcs_uri):
     response = operation.result()
 
     return response
+
+# Deletes a blob from the bucket
+def delete_blob(bucket_name, blob_name):
+    from google.cloud import storage
     
+    storage_client = storage.Client()
+
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(blob_name)
+    blob.delete()
+
+    print("Blob {} deleted.".format(blob_name))
+
+
+# 음성을 텍스트로 받을 때, 텍스트 명칭
 now = time.localtime()
 nowDate = time.strftime("%Y-%m-%d %H;%M;%S", time.localtime(time.time()))
 
 # 버킷 파일 접근
-# response = transcribe_gcs("gs://speech-bucket-jiwon/test_speech.flac")
-response = transcribe_gcs("gs://speech-bucket-jiwon/seongmin.wav")
+response = transcribe_gcs("gs://speech-bucket-jiwon/record.wav")
 
-with open("C:/Users/jeonjiwon/Desktop/capstone_jiwon/speech_file/" + str(nowDate) + ".txt", "w") as script:
+with open("C:/Users/jeonjiwon/Desktop/capstone_jiwon/textFile/" + str(nowDate) + ".txt", "w") as script:
     for result in response.results:
         script.write(u'{}'.format(result.alternatives[0].transcript)+"\n")
-
 print("completed")
 
-# with open(스크립트파일이름, "w") as script:
-#     for result in response.results:
 
-#         print(u'Transcript: {}'.format(result.alternatives[0].transcript))
-#         print('Confidence: {}'.format(result.alternatives[0].confidence))
+bucket_name = 'speech-bucket-jiwon'
+blob_name = 'record.wav'
+
+delete_blob(bucket_name, blob_name)
