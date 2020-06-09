@@ -24,25 +24,21 @@
     </template>
     <template slot="navbar-menu">
       <li class="nav-item">
-        <router-link to="/myclass" class="nav-link"><i class="now-ui-icons arrows-1_cloud-download-93"></i>나의강의</router-link>
+        <router-link to="/myclass" class="nav-link"><i class="now-ui-icons education_atom"></i> 나의강의</router-link>
       </li>
       <li class="nav-item">
-        <router-link to="/myrecord" class="nav-link"><i class="now-ui-icons design_app"></i>녹음된 파일</router-link>
+        <router-link to="/myrecord" class="nav-link"><i class="now-ui-icons education_paper"></i> 녹음된 파일</router-link>
       </li>
       <li class="nav-item">
-        <router-link to="/mypage" class="nav-link"><i class="now-ui-icons design_image"></i>마이페이지</router-link>
+        <router-link to="/mypage" class="nav-link"><i class="now-ui-icons users_circle-08"></i> 마이페이지</router-link>
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link btn btn-neutral"
-          href="https://www.creative-tim.com/product/vue-now-ui-kit-pro"
-          target="_blank"
-        >
-          <i class="now-ui-icons arrows-1_share-66"></i>
+        <a class="nav-link btn btn-neutral"
+           href="https://www.creative-tim.com/product/vue-now-ui-kit-pro"
+           target="_blank">
           <p>로그아웃</p>
         </a>
       </li>
-
     </template>
   </navbar>
 </template>

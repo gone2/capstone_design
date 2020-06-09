@@ -6,7 +6,7 @@
       <div class="container">
         <div class="content-center brand">
           <collapse :multiple-active="false">
-              <collapse-item v-for="(item, index) in classList" :key="index" v-bind:title="item.name" v-bind:name="index" style="color: white">
+              <collapse-item v-for="(item, index) in classList" :key="index" v-bind:title="item.name" v-bind:name="index" style="color: white;">
                 <h5>개요</h5>
                 <div>{{item.objectivity}}</div>
                 <br>
@@ -33,7 +33,7 @@ export default {
     Collapse,
     CollapseItem
   },
-  created(){
+  created() {
     this.getClassList()
   },
   methods: {
@@ -58,9 +58,10 @@ export default {
     classList: [],
     // 아래 내용은 가라데이터, 이 후에 디비에서 받아오게 되면 삭제할 것임
     class_name_list: [
+      "머신러닝 실무",
+      "빅데이터 실무",
       "시스템 공학 캡스톤 디자인",
-      "지능형 프로그래밍",
-      "머신러닝 실무"
+      "지능형 프로그래밍"
     ], //과목 이름
     class_summary_list: [
       "주어진 주제(업무)를 해결하는 프로젝트 개발 과정을 단계적으로 학습하고 산출 된 결과물을 분석하고 활용한다. 학생 직무에 맞는 현업에 투입되었을 때 도움이 되기 위한 직무 능력 향상과 기업의 당면 과제나 애로 기술등과 같은 프로젝트에 학생과 함꼐 참여하여 개발을 진행하며 프로그램, 특허, 창업, 사업계획서등의 결과물 도출을 목적으로 한다.",
