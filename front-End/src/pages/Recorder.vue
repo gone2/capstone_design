@@ -1,11 +1,5 @@
 <template>
 <div>
-    <div>gdfdfdf</div>
-    <div>gdfdfdf</div>
-    <div>gdfdfdf</div>
-    <div>gdfdfdf</div>
-    <div>gdfdfdf</div>
-<div>gdfdfdf</div>
      <audio-recorder
     :attempts="3"
     :time="2"
@@ -32,3 +26,10 @@ export default {
     }
 };
 </script>
+
+<style>
+.ar {
+  margin-top: 8%;
+  margin-left: 5%
+}
+</style>
