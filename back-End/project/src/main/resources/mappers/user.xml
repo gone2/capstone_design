@@ -3,16 +3,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.9//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.jiwon.project.dao.UserDao">
-    <select id="selectUserCheck" parameterType="String" resultType="String">
-        SELECT
-            USER_ID
-        FROM
-            USERS
-        <where>
-            USER_ID = #{userId}
-        </where>
-    </select>
-
     <select id="selectLoginCheck" parameterType="com.jiwon.project.dto.UserDto" resultType="hashMap">
         SELECT
             USER_ID

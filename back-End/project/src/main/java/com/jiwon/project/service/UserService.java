@@ -1,7 +1,5 @@
 package com.jiwon.project.service;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.jiwon.project.dao.UserDao;
@@ -17,10 +15,6 @@ public class UserService {
     
     @Autowired
     private UserDao userDao;
-
-    public String selectUserCheck(String userId, String userPw) {
-        return userDao.selectUserCheck(userId, userPw);
-    }
 
     public Map<String, Object> selectLoginCheck(UserDto user) {
         return userDao.selectLoginCheck(user);

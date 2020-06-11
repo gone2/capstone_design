@@ -1,7 +1,5 @@
 package com.jiwon.project.controller;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.jiwon.project.dto.UserDto;

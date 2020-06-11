@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.9//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiwon.project.dao.ClassDao">
+    <select id="selectClassInfo" resultType="hashMap">
+        SELECT
+            CLASS_NUM
+          , CLASS_NAME
+          , CLASS_OUTLINE
+          , CLASS_CONTENTS
+        FROM
+            CLASS_INFO
+        ORDER BY
+            CLASS_NUM
+    </select>
+</mapper>

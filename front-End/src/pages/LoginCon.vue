@@ -3,7 +3,7 @@
 
 <script>
 import { global } from '@/global'
-import axios from 'axios';
+import axios from 'axios'
 
 var config = require("@/config.js");
 
@@ -51,7 +51,6 @@ export default {
       // })
       axios.post('/postMapping',
         {userId: self.tem_id, userPw: self.tem_pw}
-
       ).then((result) => {
         var self = this
         var data = result.data
