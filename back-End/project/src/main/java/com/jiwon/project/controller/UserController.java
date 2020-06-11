@@ -8,10 +8,9 @@ import com.jiwon.project.dto.UserDto;
 import com.jiwon.project.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class UserController {
@@ -29,31 +28,34 @@ public class UserController {
 	// 	return "success";
 	// }
 
-	@GetMapping(value="/getMapping")
-    public String test(@RequestParam String userId, @RequestParam String userPw) throws Exception {
+	// @GetMapping(value="/getMapping")
+    // public String test(@RequestParam String userId, @RequestParam String userPw) throws Exception {
 		
-		System.out.println("userID ::::::::::::: " + userId);
-		System.out.println("userPw ::::::::::::: " + userPw);
+	// 	System.out.println("userID ::::::::::::: " + userId);
+	// 	System.out.println("userPw ::::::::::::: " + userPw);
 
-		String userdata = userService.selectUserCheck(userId, userPw);
+	// 	HashMap<String, Object> user = new HashMap<String, Object>();
 
-		System.out.println("database ::: id check :::: " + userdata);
+	// 	user.put("userId", userId);
 
-		return "success";
-	}
+	// 	String userdata = userService.selectUserCheck(userId, userPw);
 
-	@GetMapping(value="/getMapping")
-    public Map<String, Object> userLoginCheck(@RequestParam String userId, @RequestParam String userPw) throws Exception {
-		
-		Map<String, Object> returnValue = new HashMap<String, Object>();
+	// 	System.out.println("database ::: id check :::: " + userdata);
 
-		System.out.println("userID ::::::::::::: " + userId);
-		System.out.println("userPw ::::::::::::: " + userPw);
+	// 	return "success";
+	// }
 
-		List<UserDto> userInfo = userService.selectLoginCheck();
+	@PostMapping(value="/postMapping")
+    public String userLoginCheck(@RequestBody UserDto user) throws Exception {
 
-		System.out.println("database ::: User Info check :::: " + userInfo);
+		String returnValue;
+		Map<String, Object> userInfo = userService.selectLoginCheck(user);
 
+		if(user.getUserId().equals(userInfo.get("USER_ID"))) {
+			returnValue = "sucess";
+		} else {
+			returnValue = "fail";
+		}
 		return returnValue;
 	}
 }

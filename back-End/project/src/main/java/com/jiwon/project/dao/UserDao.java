@@ -1,6 +1,6 @@
 package com.jiwon.project.dao;
 
-import java.util.List;
+import java.util.Map;
 
 import com.jiwon.project.dto.UserDto;
 
@@ -13,5 +13,5 @@ public interface UserDao {
 
     String selectUserCheck(String userId, String userPw);
 
-    List<UserDto> selectLoginCheck();
+    Map<String, Object> selectLoginCheck(UserDto user);
 }

@@ -1,7 +1,4 @@
 <template>
-    <div>
-        <p>{{db_test}}</p>
-    </div>
 </template>
 
 <script>
@@ -17,7 +14,6 @@ export default {
         // 다 사용하고 난 후에는 저장된 데이터 없애주기(해킹위험)
         tem_id: '',
         tem_pw: '',
-        db_test: '',
     }),
 
   // 해당 vue 파일 만들어지자 마자 수행
@@ -39,30 +35,35 @@ export default {
         //axios 이용할 것
       var self = this
       self.$router.push({
-        name: "myclass"
+        path: "myclass"
       })
     },
     getLoginInfo() {
-      var self = this 
-      axios({
-        url: config.url + '/getMapping',
-        crossDomain: true,
-        method: 'GET',
-        params: {
-            userId: self.tem_id,
-            userPw: self.tem_pw
-        }
-      }).then((result) => {
+      var self = this
+      // axios({
+      //   url: config.url + '/postMapping',
+      //   crossDomain: true,
+      //   method: 'POST',
+      //   params: {
+      //       userId: self.tem_id,
+      //       userPw: self.tem_pw
+      //   }
+      // })
+      axios.post('/postMapping',
+        {userId: self.tem_id, userPw: self.tem_pw}
+
+      ).then((result) => {
         var self = this
         var data = result.data
-        if(data == "success"){
+        if(data == "sucess") {
           self.$router.push({
-          name: "myclass"
+            path: "myclass"
           })
-        }
-        else{
-          self.db_test = data
-        }
+        } 
+        // else {
+        //   console.log("fail!!")
+        //   self.db_test = data
+          
         // if (result.data.result == 200) {
         //     self.companyList = data.res;
         //     self.companyTotal = data.totalRecordSize;
