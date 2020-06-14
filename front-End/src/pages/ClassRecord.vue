@@ -33,10 +33,10 @@ export default {
   methods: {
     startRecording() {
       var self = this
-      if(self.recorder_visible){
+      if(self.recorder_visible){ //보일때
         self.recorder_visible = false
       }
-      else{
+      else{ //안보일때
         self.recorder_visible = true
       }
     }

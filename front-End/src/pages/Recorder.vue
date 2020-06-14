@@ -1,8 +1,8 @@
 <template>
     <div class="container">
       <audio-recorder
-            :attempts="3"
-            :time="2"
+            :attempts="1"
+            :time="5"
             :before-recording="callback"
             :pause-recording="callback"
             :after-recording="callback"
@@ -11,11 +11,14 @@
             :successful-upload="callback"
             :failed-upload="callback"
             :show-upload-button="false"/>
+      <button @click="startSTT">변환</button>
     </div>
 
 </template>
 
 <script>
+import axios from 'axios'
+var config = require("@/config.js");
 
 export default {
   name: "recording",
@@ -23,6 +26,16 @@ export default {
   methods: {
       callback (data) {
         console.debug(data)
+      },
+      startSTT() {
+        axios.get('/getStt'
+      ).then((result) => {
+        var self = this
+        var data = result.data
+        alert("tt")
+      }).catch((ex) => {
+        console.log("ERROR! : ", ex);
+      });
       }
     }
 };
