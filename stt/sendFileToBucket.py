@@ -1,5 +1,6 @@
 from google.cloud import storage
 import os
+import real_speechToText
 
 # Uploads a file to the bucket
 def upload_blob(bucket_name, source_file, destination_blob):
@@ -12,14 +13,10 @@ def upload_blob(bucket_name, source_file, destination_blob):
 
     print("File {} uploaded to {}.".format(source_file, destination_blob))
 
-bucket = 'speech-bucket-jiwon'
-source_file = 'C://Users//jeonjiwon//Desktop//capstone_jiwon//speechFile//record.wav'
-destination_blob = 'record.wav'
+    # local wav delete
+    if os.path.isfile(source_file):
+        os.remove(source_file)
 
-upload_blob(bucket, source_file, destination_blob)
+        print('okay')
 
-# local wav delete
-if os.path.isfile(source_file):
-    os.remove(source_file)
-
-    print('okay')
+    real_speechToText.response()

@@ -1,6 +1,10 @@
 # from os import path
 from pydub import AudioSegment
 import os
+import sendFileToBucket
+
+def setJson():
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r'C:\Users\jeonjiwon\Desktop\capstone_jiwon\speechtotext-273207-bb7ae3de971d.json'
 
 # files                                                                         
 src = 'C://Users//jeonjiwon//Downloads//record.mp3'
@@ -15,3 +19,12 @@ if os.path.isfile(src):
     os.remove(src)
 
     print('okay')
+
+
+setJson()
+
+bucket = 'speech-bucket-jiwon'
+source_file = 'C://Users//jeonjiwon//Desktop//capstone_jiwon//speechFile//record.wav'
+destination_blob = 'record.wav'
+
+sendFileToBucket.upload_blob(bucket, source_file, destination_blob)
