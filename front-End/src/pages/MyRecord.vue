@@ -40,7 +40,7 @@ export default {
     Parallax,
     Collapse,
     CollapseItem
-  }
+  },
 };
 </script>
 <style></style>

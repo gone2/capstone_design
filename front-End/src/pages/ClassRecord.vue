@@ -4,15 +4,19 @@
 
         <div class="container">
             <div>시스템 공학 캡스톤 디자인</div>
-            <router-link to="/recording" style="font-size: large;">
-              <i class="now-ui-icons education_agenda-bookmark"></i> 녹음
-            </router-link>
+            <button @click="startRecording"><i class="now-ui-icons education_agenda-bookmark"></i> 녹음</button>
+            <template v-if="recorder_visible">
+              <Recorder></Recorder>
+            </template>
+            <template v-else>
+            </template>
         </div>
     </div>
 </template>
 <script>
 import { Parallax } from "@/components";
 import { Collapse, CollapseItem } from "@/components";
+import Recorder from './Recorder';
 
 export default {
   name: "myrecord",
@@ -20,8 +24,23 @@ export default {
   components: {
     Parallax,
     Collapse,
-    CollapseItem
-  }
+    CollapseItem,
+    Recorder
+  },
+  data: _ => ({
+    recorder_visible: false
+  }),
+  methods: {
+    startRecording() {
+      var self = this
+      if(self.recorder_visible){
+        self.recorder_visible = false
+      }
+      else{
+        self.recorder_visible = true
+      }
+    }
+  },
 };
 </script>
 <style></style>
