@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.jiwon.project.dto.ClassDto;
 import com.jiwon.project.service.ClassService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,24 +30,25 @@ public class ClassController {
     }
     
 	@GetMapping(value="/getStt")
-    public static void getStt() throws Exception {
-        ProcessBuilder pb = new ProcessBuilder();
+    public String getStt() throws Exception {
+        String result = "";
         Process process = Runtime.getRuntime().exec("python C://Users//jeonjiwon//Desktop//capstone_jiwon//stt//mp3ToWav.py");
-
-        // pb.command("cmd.exe", "/c", "dir C://Users//jeonjiwon//Desktop//capstone_jiwon//stt//test.py");
-
-        // Process process = pb.start();
-
-        String s = null;
 
         BufferedReader stb = new BufferedReader(new InputStreamReader(process.getInputStream()));
         BufferedReader ste = new BufferedReader(new InputStreamReader(process.getErrorStream()));
 
-        while ((s = stb.readLine()) != null) {
-            System.out.println(s);
+        while ((stb.readLine()) != null) {
+            result = "sucess";
         }
-        while ((s = ste.readLine()) != null) {
-            System.out.println(s);
+        while ((ste.readLine()) != null) {
+            result = "fail";
         }
+        return result;
+    }
+
+    @GetMapping(value="/textFileUpload")
+    public String textFileUpload() throws Exception {
+
+        return null;
     }
 }

@@ -15,33 +15,6 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-	
-	// @GetMapping(value="/getMapping")
-    // public String login(@RequestParam String userId, @RequestParam String userPw) throws Exception {
-	// 	System.out.println("login method!!!!!!!!!!!!@@@@@@@@@@@@!!!!!!!!!!!");
-
-	// 	System.out.println("userID ::::::::::::: " + userId);
-	// 	System.out.println("userPw ::::::::::::: " + userPw);
-
-	// 	return "success";
-	// }
-
-	// @GetMapping(value="/getMapping")
-    // public String test(@RequestParam String userId, @RequestParam String userPw) throws Exception {
-		
-	// 	System.out.println("userID ::::::::::::: " + userId);
-	// 	System.out.println("userPw ::::::::::::: " + userPw);
-
-	// 	HashMap<String, Object> user = new HashMap<String, Object>();
-
-	// 	user.put("userId", userId);
-
-	// 	String userdata = userService.selectUserCheck(userId, userPw);
-
-	// 	System.out.println("database ::: id check :::: " + userdata);
-
-	// 	return "success";
-	// }
 
 	@PostMapping(value="/postMapping")
     public String userLoginCheck(@RequestBody UserDto user) throws Exception {
