@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+      
       <audio-recorder
             :attempts="1"
             :time="5"
@@ -11,10 +12,12 @@
             :successful-upload="callback"
             :failed-upload="callback"
             :show-upload-button="false"/>
-      <button @click="startSTT">변환</button>
+      <div style="margin-top: 2%; margin-left: 30%;">
+        <button @click="startSTT">변환</button>
+      </div>
 
       <div id="loading" style="display:none">
-        <img src="img/loading.gif" alt="loading">
+        <img src="img/loading.gif" alt="loading" style="margin-top: 20%;">
       </div>
     </div>
 
@@ -23,7 +26,6 @@
 <script>
 import axios from 'axios'
 var config = require("@/config.js");
-// document.getElementById('loading').style.display="none"
 
 export default {
   name: "recording",
@@ -32,7 +34,7 @@ export default {
     callback (data) {
     },
     startSTT() {
-      alert('텍스트 변환 중 입니다.')
+      alert('텍스트 변환 시작하겠습니다.')
       document.getElementById('loading').style.display="block"
       
       axios.get('/getStt'
