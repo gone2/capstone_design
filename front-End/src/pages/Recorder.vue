@@ -13,7 +13,7 @@
             :failed-upload="callback"
             :show-upload-button="false"/>
       <div style="margin-top: 2%; margin-left: 30%;">
-        <button @click="startSTT">변환</button>
+        <button id="recorderBtn" class="nav-link btn btn-neutral" @click="startSTT">변환</button>
       </div>
 
       <div id="loading" style="display:none">
@@ -59,13 +59,18 @@ export default {
 </script>
 
 <style>
+#recorderBtn {
+  float: right;
+  margin-right: 30%;
+}
+
 .ar-icon {
   padding-top: 0px;
 }
 
 .ar {
   margin-top: 3%;
-  margin-left: 30%;
+  margin-left: 27%;
 }
 
 #loading {

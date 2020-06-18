@@ -34,7 +34,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link btn btn-neutral"
-           href="https://www.creative-tim.com/product/vue-now-ui-kit-pro"
+           href="http://localhost:8080/#/"
            target="_blank">
           <p>로그아웃</p>
         </a>

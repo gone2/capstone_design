@@ -5,7 +5,7 @@
       <div class="container">
         <div class="content-center brand">
           <div style="margin-bottom: 2%;">
-            <router-link to="/classRecord" style="font-size: large;">
+            <router-link to="/classRecord" v-on:click="classOne()" style="font-size: large;">
               <i class="now-ui-icons education_agenda-bookmark"></i> 머신러닝 실무
             </router-link>
           </div>
@@ -32,6 +32,7 @@
 <script>
 import { Parallax } from "@/components";
 import { Collapse, CollapseItem } from "@/components";
+import { classCheck } from "@/classCheck";
 
 export default {
   name: "myrecord",
@@ -41,6 +42,15 @@ export default {
     Collapse,
     CollapseItem
   },
+  data: _=> ({
+        class_num: ''
+    }),
+  methods: {
+    loginCheck() {
+      var self = this;
+      classCheck.class_num = self.class_num;
+    }
+  }
 };
 </script>
 <style></style>

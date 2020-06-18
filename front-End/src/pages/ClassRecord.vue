@@ -3,18 +3,18 @@
         <parallax class="page-header-image" style="background-image:url('img/header.jpg')"></parallax>
 
         <div class="container">
-            <div>시스템 공학 캡스톤 디자인</div>
-            <div>
+            <h3>시스템 공학 캡스톤 디자인</h3>
+            <!-- <div>
               <button @click="startRecording">
                 <i class="now-ui-icons education_agenda-bookmark"></i> 녹음
               </button>
             </div>
-            <template v-if="recorder_visible">
+            <template v-if="recorder_visible"> -->
               <Recorder></Recorder>
-            </template>
+            <!-- </template>
             <template v-else>
 
-            </template>
+            </template> -->
         </div>
     </div>
 </template>
