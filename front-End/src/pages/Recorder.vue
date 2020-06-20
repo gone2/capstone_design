@@ -25,6 +25,8 @@
 
 <script>
 import axios from 'axios'
+import { global } from '@/global'
+
 var config = require("@/config.js");
 
 export default {
@@ -37,7 +39,8 @@ export default {
       alert('텍스트 변환 시작하겠습니다.')
       document.getElementById('loading').style.display="block"
       
-      axios.get('/getStt'
+      axios.post('/getStt',
+        {classKey: global.CLASS_NUM}
       ).then((result) => {
         var self = this
         var data = result.data

@@ -1,5 +1,6 @@
 #set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\jeonjiwon\Desktop\capstone_jiwon\speechtotext-273207-bb7ae3de971d.json
 import time
+import static
 
 # 음성을 텍스트로 받을 때, 텍스트 명칭
 now = time.localtime()
@@ -43,22 +44,37 @@ def delete_blob(bucket_name, blob_name):
 def response():
     # 버킷 파일 접근
     response = transcribe_gcs("gs://speech-bucket-jiwon/record.wav")
+    CLASS_CODE = ""
+    CLASS_NAME = ""
+    FULL_PATH = ""
 
-    with open("C:/Users/jeonjiwon/Desktop/capstone_jiwon/textFile/" + str(nowDate) + ".txt", "w") as script:
-        for result in response.results:
-            script.write(u'{}'.format(result.alternatives[0].transcript)+"\n")
-    print("completed")
-
+    if static.classNum == 0:
+        CLASS_CODE = '0_ML'
+        CLASS_NAME = 'ML_'
+    elif static.classNum == 1:
+        CLASS_CODE = '1_BIGDATA'
+        CLASS_NAME = 'BIGDATA_'
+    elif static.classNum == 2:
+        CLASS_CODE = '2_CAPSTONE'
+        CLASS_NAME = 'CAPSTONE_'
+    elif static.classNum == 3:
+        CLASS_CODE = '3_SYSTEM'
+        CLASS_NAME = 'SYSTEM_'
+    else:
+        print("fail")
+    
+    FULL_PATH = CLASS_CODE + "/" + CLASS_NAME
+    textPath(FULL_PATH, response)
 
     bucket_name = 'speech-bucket-jiwon'
     blob_name = 'record.wav'
 
     delete_blob(bucket_name, blob_name)
 
-    oracleUpload()
+    oracleUpload(CLASS_CODE, CLASS_NAME)
 
 # text file auto upload in oracle dataBase
-def oracleUpload():
+def oracleUpload(CLASS_CODE, CLASS_NAME):
     import cx_Oracle
     # 한글 지원 방법
     import glob, os
@@ -66,8 +82,8 @@ def oracleUpload():
 
     file_name = ""
 
-    os.chdir("C:/Users/jeonjiwon/Desktop/capstone_jiwon/textFile")
-    for file in glob.glob(str(nowDate) + ".txt"):
+    os.chdir("C:/Users/jeonjiwon/Desktop/capstone_jiwon/textFile/" + CLASS_CODE + "/")
+    for file in glob.glob(CLASS_NAME + str(nowDate) + ".txt"):
         file_name = file
 
     # 연결에 필요한 기본 정보 (유저, 비밀번호, 데이터베이스 서버 주소)
@@ -82,3 +98,10 @@ def oracleUpload():
     conn.close()
 
     print('text db insert')
+
+def textPath(FULL_PATH, response):
+    with open("C:/Users/jeonjiwon/Desktop/capstone_jiwon/textFile/" + FULL_PATH + str(nowDate) + ".txt", "w") as script:
+        for result in response.results:
+            script.write(u'{}'.format(result.alternatives[0].transcript)+"\n")
+        
+        print("completed")

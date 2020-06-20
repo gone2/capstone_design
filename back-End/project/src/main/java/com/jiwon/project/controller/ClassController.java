@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.jiwon.project.dao.ClassDao;
+import com.jiwon.project.dao.NumberDao;
+import com.jiwon.project.dto.NumberDto;
 import com.jiwon.project.service.ClassService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,24 +33,27 @@ public class ClassController {
         return classInfoReturn;
     }
     
-	@GetMapping(value="/getStt")
-    public String getStt() throws Exception {
+	@PostMapping(value="/getStt")
+    public String getStt(@RequestBody NumberDto numberDto) throws Exception {
         String result = "";
-        Process process = Runtime.getRuntime().exec("python C://Users//jeonjiwon//Desktop//capstone_jiwon//stt//mp3ToWav.py");
+        int num = numberDto.getNumber();
+
+        System.out.println(Integer.toString(num));
+        
+        Process process = Runtime.getRuntime().exec("python C://Users//jeonjiwon//Desktop//capstone_jiwon//stt//mp3ToWav.py " + num);
 
         BufferedReader stb = new BufferedReader(new InputStreamReader(process.getInputStream()));
         BufferedReader ste = new BufferedReader(new InputStreamReader(process.getErrorStream()));
 
 
         while ((stb.readLine()) != null) {
-            System.out.println("sucess :::::::::::::; " + stb.readLine());
-            result = "sucess";
+            System.out.println("11111111111 :::::::::::: " + stb.readLine());
+            result = "success";
         }
         while ((ste.readLine()) != null) {
-            System.out.println("fail :::::::::::::; " + ste.readLine());
+            System.out.println("22222222222 :::::::::::: " + stb.readLine());
             result = "fail";
         }
-
         return result;
     }
 

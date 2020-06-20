@@ -1,7 +1,14 @@
 # from os import path
 from pydub import AudioSegment
+import sys
 import os
 import sendFileToBucket
+import static
+
+params = 0
+static.classNum = params
+
+print("hasdjfhsajdkfhkajshfkjashdjkfhsakjdhfkja ::::: " + str(params))
 
 def setJson():
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r'C:\Users\jeonjiwon\Desktop\capstone_jiwon\speechtotext-273207-bb7ae3de971d.json'
@@ -17,7 +24,8 @@ sound.export(dst, format="wav")
 # local mp3 delete
 if os.path.isfile(src):
     os.remove(src)
-
+    
+    print("hasdjfhsajdkfhkajshfkjashdjkfhsakjdhfkja ::::: " + str(params))
     print('local mp3 delete okay')
 
 
