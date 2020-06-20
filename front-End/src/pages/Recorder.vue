@@ -44,10 +44,6 @@ export default {
         if(data == "sucess") {
           document.getElementById('loading').style.display="none"
           alert("변환이 완료되었습니다.")
-
-          axios.get('/textFileUpload').then((result) => {
-
-          })
         } else {
           document.getElementById('loading').style.display="none"
           return alert("녹취 후 다운로드 받으시고 '변환'버튼을 눌러주세요.")

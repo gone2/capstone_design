@@ -32,7 +32,7 @@
 <script>
 import { Parallax } from "@/components";
 import { Collapse, CollapseItem } from "@/components";
-import { classCheck } from "@/classCheck";
+// import { classCheck } from "@/classCheck";
 
 export default {
   name: "myrecord",

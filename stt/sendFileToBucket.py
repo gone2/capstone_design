@@ -17,6 +17,6 @@ def upload_blob(bucket_name, source_file, destination_blob):
     if os.path.isfile(source_file):
         os.remove(source_file)
 
-        print('okay')
+        print('local wav delete okay')
 
     real_speechToText.response()

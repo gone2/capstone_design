@@ -11,6 +11,7 @@ import com.jiwon.project.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -37,12 +38,16 @@ public class ClassController {
         BufferedReader stb = new BufferedReader(new InputStreamReader(process.getInputStream()));
         BufferedReader ste = new BufferedReader(new InputStreamReader(process.getErrorStream()));
 
+
         while ((stb.readLine()) != null) {
+            System.out.println("sucess :::::::::::::; " + stb.readLine());
             result = "sucess";
         }
         while ((ste.readLine()) != null) {
+            System.out.println("fail :::::::::::::; " + ste.readLine());
             result = "fail";
         }
+
         return result;
     }
 

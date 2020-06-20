@@ -66,7 +66,7 @@ def oracleUpload():
 
     file_name = ""
 
-    os.chdir("../textFile")
+    os.chdir("C:/Users/jeonjiwon/Desktop/capstone_jiwon/textFile")
     for file in glob.glob(str(nowDate) + ".txt"):
         file_name = file
 
@@ -80,3 +80,5 @@ def oracleUpload():
     conn.commit()
     cursor.close()
     conn.close()
+
+    print('text db insert')

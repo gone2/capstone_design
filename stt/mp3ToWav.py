@@ -18,7 +18,7 @@ sound.export(dst, format="wav")
 if os.path.isfile(src):
     os.remove(src)
 
-    print('okay')
+    print('local mp3 delete okay')
 
 
 setJson()
