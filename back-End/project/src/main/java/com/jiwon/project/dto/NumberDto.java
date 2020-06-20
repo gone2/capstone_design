@@ -6,10 +6,10 @@ import lombok.Data;
 public class NumberDto {
     private int classKey;
 
-    public int getNumber() {
+    public int getClassKey() {
         return classKey;
     }
-    public void setNumber(int classKey) {
+    public void setClassKey(int classKey) {
         this.classKey = classKey;
     }
 }

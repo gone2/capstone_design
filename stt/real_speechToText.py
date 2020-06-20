@@ -48,16 +48,16 @@ def response():
     CLASS_NAME = ""
     FULL_PATH = ""
 
-    if static.classNum == 0:
+    if static.classNum is '0':
         CLASS_CODE = '0_ML'
         CLASS_NAME = 'ML_'
-    elif static.classNum == 1:
+    elif static.classNum is '1':
         CLASS_CODE = '1_BIGDATA'
         CLASS_NAME = 'BIGDATA_'
-    elif static.classNum == 2:
+    elif static.classNum is '2':
         CLASS_CODE = '2_CAPSTONE'
         CLASS_NAME = 'CAPSTONE_'
-    elif static.classNum == 3:
+    elif static.classNum is '3':
         CLASS_CODE = '3_SYSTEM'
         CLASS_NAME = 'SYSTEM_'
     else:
@@ -83,9 +83,12 @@ def oracleUpload(CLASS_CODE, CLASS_NAME):
     file_name = ""
 
     os.chdir("C:/Users/jeonjiwon/Desktop/capstone_jiwon/textFile/" + CLASS_CODE + "/")
+    print("oracleUpload :: " + CLASS_CODE)
     for file in glob.glob(CLASS_NAME + str(nowDate) + ".txt"):
         file_name = file
 
+    
+    print("oracleUpload :: " + CLASS_NAME)
     # 연결에 필요한 기본 정보 (유저, 비밀번호, 데이터베이스 서버 주소)
     conn = cx_Oracle.connect('capstone_jiwon/1234@127.0.0.1:1521/Jeonjiwon')
     cursor = conn.cursor()

@@ -5,7 +5,7 @@ import os
 import sendFileToBucket
 import static
 
-params = 0
+params = sys.argv[1]
 static.classNum = params
 
 print("hasdjfhsajdkfhkajshfkjashdjkfhsakjdhfkja ::::: " + str(params))

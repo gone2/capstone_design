@@ -44,7 +44,7 @@ export default {
       ).then((result) => {
         var self = this
         var data = result.data
-        if(data == "sucess") {
+        if(data == "success") {
           document.getElementById('loading').style.display="none"
           alert("변환이 완료되었습니다.")
         } else {

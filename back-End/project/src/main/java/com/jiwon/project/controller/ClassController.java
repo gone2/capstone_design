@@ -6,13 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.jiwon.project.dao.ClassDao;
-import com.jiwon.project.dao.NumberDao;
 import com.jiwon.project.dto.NumberDto;
 import com.jiwon.project.service.ClassService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,7 +33,7 @@ public class ClassController {
 	@PostMapping(value="/getStt")
     public String getStt(@RequestBody NumberDto numberDto) throws Exception {
         String result = "";
-        int num = numberDto.getNumber();
+        int num = numberDto.getClassKey();
 
         System.out.println(Integer.toString(num));
         
@@ -55,11 +52,5 @@ public class ClassController {
             result = "fail";
         }
         return result;
-    }
-
-    @GetMapping(value="/textFileUpload")
-    public String textFileUpload() throws Exception {
-
-        return null;
     }
 }
